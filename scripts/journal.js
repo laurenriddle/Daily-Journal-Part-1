@@ -16,6 +16,7 @@ const journalEntry = [
 }
 ]
 
+
 const journalEntryArray = []
 
 journalEntryArray.push(journalEntry)
