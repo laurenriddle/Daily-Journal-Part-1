@@ -26,29 +26,32 @@ const journalEntry1 = {
 
 
 const journalEntriesArray = [
-    {
-    "Date of Entry": "10/10/2019",
-    "Concepts Covered": "JS Objects",
-    "Journal Entry": "Today, we learned about looping through JS objects using a 'for in' loop. When you loop through an object, it will output the key and the value.",
-    "Mood for the Day": "Happy"
-},
-{
-    "Date of Entry": "10/28/2019",
-    "Concepts Covered": "ES6 Modules",
-    "Journal Entry": "Today, we learned about using ES6 Modules to cut down on the amount of script tags being linked in the index.html.",
-    "Mood for the Day": "Happy"
-},
-{
-    "Date of Entry": "10/28/2019",
-    "Concepts Covered": "Factory Functions",
-    "Journal Entry": "Today, we learned that factory functions are functions that return an object.",
-    "Mood for the Day": "Happy"
-}
+    
 ]
 
-journalEntryArray.push(journalEntry1, journalEntry2, journalEntry3)
 
-console.log(journalEntryArray)
+
+const newJournalEntry = () => {
+    const date = document.getElementById("journalDate").value
+    const subject = document.getElementById("conceptsCovered").value
+    const journalEntry = document.getElementById("textarea").value
+    const mood = document.getElementById("mood").value
+    let entry = {
+        "Date of Entry": date,
+        "Concepts Covered": subject,
+        "Journal Entry": `${journalEntry}`,
+        "Mood for the Day": `${mood}`
+    }
+    journalEntriesArray.push(entry)
+    console.log(journalEntriesArray)
+
+} 
+
+document.getElementById("submitButton").addEventListener("click", newJournalEntry)
+
+
+journalEntriesArray.push(journalEntry1, journalEntry2, journalEntry3)
+
 
 const journalEntries = [
     {
@@ -59,29 +62,29 @@ const journalEntries = [
     }
 ]
 
-/*
-    Purpose: To create, and return, a string template that
-    represents a single journal entry object as HTML
+// /*
+//     Purpose: To create, and return, a string template that
+//     represents a single journal entry object as HTML
 
-    Arguments: journalEntry (object)
-*/
-const makeJournalEntryComponent = (journalEntry) {
-    // Create your own HTML structure for a journal entry
-    return `
+//     Arguments: journalEntry (object)
+// */
+// const makeJournalEntryComponent = (journalEntry) {
+//     // Create your own HTML structure for a journal entry
+//     return `
 
-    `
-}
+//     `
+// }
 
 
 
-/*
-    Purpose: To render all journal entries to the DOM
+// /*
+//     Purpose: To render all journal entries to the DOM
 
-    Arguments: entries (array of objects)
-*/
-const renderJournalEntries = (entries) => {
+//     Arguments: entries (array of objects)
+// */
+// const renderJournalEntries = (entries) => {
 
-}
+// }
 
-// Invoke the render function
-renderJournalEntries(journalEntries)
+// // Invoke the render function
+// renderJournalEntries(journalEntries)
