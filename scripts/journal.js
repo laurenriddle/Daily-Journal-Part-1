@@ -1,32 +1,32 @@
 /*
     Define the keys and value for a JavaScript object that
-    represents a journal entry about what you learned today
+    represents a entry about what you learned today
 */
 const journalEntry1 = {
-        "Date of Entry": "10/10/2019",
-        "Concepts Covered": "JS Objects",
-        "Journal Entry": "Today, we learned about looping through JS objects using a 'for in' loop. When you loop through an object, it will output the key and the value.",
-        "Mood for the Day": "Happy"
-    }
-    
-    const journalEntry2 = {
-        "Date of Entry": "10/28/2019",
-        "Concepts Covered": "ES6 Modules",
-        "Journal Entry": "Today, we learned about using ES6 Modules to cut down on the amount of script tags being linked in the index.html.",
-        "Mood for the Day": "Happy"
-    }
+    "date": "10/10/2019",
+    "concepts": "JS Objects",
+    "entry": "Today, we learned about looping through JS objects using a 'for in' loop. When you loop through an object, it will output the key and the value.",
+    "mood": "Happy"
+}
 
-    const journalEntry3 = {
-        "Date of Entry": "10/28/2019",
-        "Concepts Covered": "Factory Functions",
-        "Journal Entry": "Today, we learned that factory functions are functions that return an object.",
-        "Mood for the Day": "Happy"
-    }
+const journalEntry2 = {
+    "date": "10/28/2019",
+    "concepts": "ES6 Modules",
+    "entry": "Today, we learned about using ES6 Modules to cut down on the amount of script tags being linked in the index.html.",
+    "mood": "Happy"
+}
+
+const journalEntry3 = {
+    "date": "10/28/2019",
+    "concepts": "Factory Functions",
+    "entry": "Today, we learned that factory functions are functions that return an object.",
+    "mood": "Happy"
+}
 
 
 
-const journalEntriesArray = [
-    
+const journalEntries = [
+
 ]
 
 
@@ -37,54 +37,57 @@ const newJournalEntry = () => {
     const journalEntry = document.getElementById("textarea").value
     const mood = document.getElementById("mood").value
     let entry = {
-        "Date of Entry": date,
-        "Concepts Covered": subject,
-        "Journal Entry": `${journalEntry}`,
-        "Mood for the Day": `${mood}`
+        "date": date,
+        "concepts": subject,
+        "entry": `${journalEntry}`,
+        "mood": `${mood}`
     }
-    journalEntriesArray.push(entry)
-    console.log(journalEntriesArray)
+    journalEntries.push(entry)
+    console.log(journalEntries)
 
-} 
+}
 
 document.getElementById("submitButton").addEventListener("click", newJournalEntry)
 
 
-journalEntriesArray.push(journalEntry1, journalEntry2, journalEntry3)
+journalEntries.push(journalEntry1, journalEntry2, journalEntry3)
 
 
-const journalEntries = [
-    {
-        concept: "Array methods",
-        date: "07/24/2018",
-        entry: "We learned about array methods, but only forEach made sense",
-        mood: "Ok"
+
+/*
+   Purpose: To create, and return, a string template that
+   represents a single entry object as HTML
+
+   Arguments: journalEntry (object)
+*/
+
+const makeJournalEntryComponent = (journalEntry) => {
+    // Create your own HTML structure for a entry
+    return `
+    <section>
+    <h1>${journalEntries.concepts}</h1>
+    <p>${journalEntries.entry}</p>
+    <p>${journalEntries.mood}</p>
+    <p>${journalEntries.date}</p>
+    </section>
+    `
+}
+
+
+
+/*
+    Purpose: To render all journal entries to the DOM
+
+   Arguments: entries (array of objects)
+*/
+
+
+const renderJournalEntries = (entries) => {
+    const entryLog = document.getElementsByClassName("entryLog").
+        for(let i = 0; i < entries.length; i++) {
+        entryLog += entries[i]
     }
-]
+}
 
-// /*
-//     Purpose: To create, and return, a string template that
-//     represents a single journal entry object as HTML
-
-//     Arguments: journalEntry (object)
-// */
-// const makeJournalEntryComponent = (journalEntry) {
-//     // Create your own HTML structure for a journal entry
-//     return `
-
-//     `
-// }
-
-
-
-// /*
-//     Purpose: To render all journal entries to the DOM
-
-//     Arguments: entries (array of objects)
-// */
-// const renderJournalEntries = (entries) => {
-
-// }
-
-// // Invoke the render function
-// renderJournalEntries(journalEntries)
+// Invoke the render function
+renderJournalEntries(journalEntries)
